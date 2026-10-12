@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота: Музичні голоси (5 клас)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f7; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 680px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        h1 { color: #1e3c72; font-size: 22px; text-align: center; margin-bottom: 8px; }
+        .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 25px; line-height: 1.4; }
+        .question-box { margin-bottom: 22px; padding: 18px; background: #f8fafc; border-left: 5px solid #2a5298; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+        .question-title { font-weight: bold; margin-bottom: 12px; color: #1e3c72; font-size: 16px; }
+        audio { width: 100%; margin: 10px 0 15px 0; border-radius: 8px; }
+        label { display: block; margin: 8px 0; cursor: pointer; font-size: 15px; padding: 6px 10px; border-radius: 6px; transition: background 0.2s; }
+        label:hover { background: #e2e8f0; }
+        input[type="radio"] { margin-right: 10px; transform: scale(1.2); }
+        input[type="text"] { width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 16px; box-sizing: border-box; outline: none; }
+        input[type="text"]:focus { border-color: #2a5298; }
+        button { display: block; width: 100%; background: #27ae60; color: white; border: none; padding: 14px; font-size: 18px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: background 0.3s; margin-top: 10px; }
+        button:hover { background: #219653; }
+        #result { display: none; text-align: center; padding: 20px 0; }
+        .score-badge { font-size: 52px; color: #27ae60; font-weight: bold; margin: 15px 0; }
+        .secret-code { background: #f0fdf4; border: 2px dashed #22c55e; padding: 12px; font-family: monospace; font-size: 18px; margin: 20px 0; border-radius: 8px; color: #15803d; word-break: break-all; }
+        .instruction-note { background: #fffbe3; border: 1px solid #ffe58f; padding: 10px; border-radius: 6px; font-size: 13px; color: #856404; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎼 Практична робота: Музичні голоси на слух</h1>
+    <div class="subtitle">За підручником (с. 28–29). Прослухайте фрагменти, визначте тембри та дайте відповіді.</div>
+
+    <div id="quiz-form">
+        <label for="studentName"><b>Прізвище та Ім'я учня/учениці:</b></label>
+        <input type="text" id="studentName" placeholder="Введіть своє ім'я та прізвище..." required>
+
+        <div class="instruction-note">
+            🎧 <b>Як виконувати:</b> Уважно прослухайте кожний аудіозапис під запитанням та оберіть відповідний тембр голосу.
+        </div>
+
+        <!-- Запитання 1 -->
+        <div class="question-box">
+            <div class="question-title">1. (2 бали) Прослухай аудіофрагмент. Який це високий жіночий голос (як у Соломії Крушельницької)?</div>
+            <audio controls src="https://actions.google.com/sounds/v1/human_voices/female_singing.ogg"></audio>
+            <label><input type="radio" name="q1" value="2"> Сопрано</label>
+            <label><input type="radio" name="q1" value="0"> Бас</label>
+            <label><input type="radio" name="q1" value="0"> Тенор</label>
+        </div>
+
+        <!-- Запитання 2 -->
+        <div class="question-box">
+            <div class="question-title">2. (2 бали) Прослухай фрагмент. Який тембр голосу лунає (глибокий, низький чоловічий голос)?</div>
+            <audio controls src="https://actions.google.com/sounds/v1/human_voices/male_singing.ogg"></audio>
+            <label><input type="radio" name="q2" value="0"> Сопрано</label>
+            <label><input type="radio" name="q2" value="2"> Бас / Баритон</label>
+            <label><input type="radio" name="q2" value="0"> Альт</label>
+        </div>
+
+        <!-- Запитання 3 -->
+        <div class="question-box">
+            <div class="question-title">3. (2 бали) Послухай виконання. Як називається високий чоловічий співацький голос?</div>
+            <audio controls src="https://upload.wikimedia.org/wikipedia/commons/transcoded/0/07/Enrico_Caruso_-_La_donna_%C3%A8_mobile.ogg/Enrico_Caruso_-_La_donna_%C3%A8_mobile.ogg.mp3"></audio>
+            <label><input type="radio" name="q3" value="2"> Тенор</label>
+            <label><input type="radio" name="q3" value="0"> Бас</label>
+            <label><input type="radio" name="q3" value="0"> Меццо-сопрано</label>
+        </div>
+
+        <!-- Запитання 4 -->
+        <div class="question-box">
+            <div class="question-title">4. (2 бали) За підручником (с. 28): як називається спів хору БЕЗ музичного супроводу?</div>
+            <label><input type="radio" name="q4" value="2"> А капела</label>
+            <label><input type="radio" name="q4" value="0"> Оркестровий супровід</label>
+            <label><input type="radio" name="q4" value="0"> Сольний дует</label>
+        </div>
+
+        <!-- Запитання 5 -->
+        <div class="question-box">
+            <div class="question-title">5. (2 бали) Як називається керівник хору та його диригент (с. 28)?</div>
+            <label><input type="radio" name="q5" value="0"> Композитор</label>
+            <label><input type="radio" name="q5" value="2"> Хормейстер</label>
+            <label><input type="radio" name="q5" value="0"> Концертмейстер</label>
+        </div>
+
+        <!-- Запитання 6 -->
+        <div class="question-box">
+            <div class="question-title">6. (2 бали) Подивіться на нотну грамоту пісні «Зелений світ» (с. 29). Який розмір вказано на початку?</div>
+            <label><input type="radio" name="q6" value="0"> 2/4</label>
+            <label><input type="radio" name="q6" value="2"> 3/4</label>
+            <label><input type="radio" name="q6" value="0"> 4/4</label>
+        </div>
+
+        <button onclick="checkResult()">Завершити та переглянути оцінку</button>
+    </div>
+
+    <div id="result">
+        <h2 style="color: #1e3c72;">Результат роботи</h2>
+        <p id="greetingName" style="font-size: 20px; font-weight: bold; color: #334155;"></p>
+        <div class="score-badge" id="finalScore">0 / 12</div>
+        <p style="font-size: 15px; color: #64748b;">Зробіть <b>скріншот цієї сторінки</b> та надішліть вчителю в особисті повідомлення!</p>
+        <div class="secret-code" id="secretHash">Код підтвердження: ---</div>
+    </div>
+</div>
+
+<script>
+function checkResult() {
+    const name = document.getElementById('studentName').value.trim();
+    if (!name) {
+        alert("Будь ласка, введіть своє Прізвище та Ім'я перед відправкою!");
+        return;
+    }
+
+    let score = 0;
+    for (let i = 1; i <= 6; i++) {
+        const options = document.getElementsByName('q'+i);
+        for (const opt of options) {
+            if (opt.checked) {
+                score += parseInt(opt.value);
+            }
+        }
+    }
+
+    document.getElementById('quiz-form').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('greetingName').innerText = `Учень/Учениця: ${name}`;
+    document.getElementById('finalScore').innerText = `${score} / 12 балів`;
+    
+    const timestamp = new Date().toLocaleTimeString('uk-UA');
+    const rawData = name + score + timestamp + "music5class";
+    let hash = Math.abs(rawData.split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0)).toString(16).toUpperCase();
+
+    document.getElementById('secretHash').innerText = `Код підтвердження: M-5K-${hash} (${timestamp})`;
+}
+</script>
+
+</body>
+</html>
